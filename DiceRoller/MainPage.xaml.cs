@@ -1,24 +1,28 @@
-﻿namespace DiceRoller;
+﻿using System.Diagnostics.Metrics;
+
+namespace DiceRoller;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private void btnRandom_Click(object sender, EventArgs e)
 	{
-		count++;
+		Random numAleatorio = new Random();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+		string Resultado = "";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+		for (int i = 0; i <= 1 -1; i++)
+		{
+			Resultado += numAleatorio.Next(1,5);
+			dicerNumber.Text = Resultado;
+
+        }
+    }
 }
 
