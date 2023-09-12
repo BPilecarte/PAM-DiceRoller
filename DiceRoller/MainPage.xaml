@@ -7,15 +7,35 @@
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            HorizontalOptions="Center">
 
             <Label
                 Text="ROLADOR DE DADOS"
                 FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Label x:Name="dicerNumber" Text="0" HorizontalTextAlignment="Center" FontSize="32"/>
+                HorizontalOptions="Center"/>
             
+            <Image
+                x:Name="DiceImage"
+                Source="dice_1.png"
+                SemanticProperties.Description="Um dado com a face número 1 para cima"
+                HeightRequest="150"
+                HorizontalOptions="Center"/>
+
+            <Label x:Name="NumberOfDice" 
+                   Text="0" HorizontalOptions="Center" 
+                   FontSize="32"/>
+
+            <Picker x:Name="sidesPicker" HorizontalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>4</x:Int32>
+                        <x:Int32>6</x:Int32>
+                        <x:Int32>10</x:Int32>
+                        <x:Int32>20</x:Int32>
+                        <x:Int32>100</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
            
             <Button
                 Text="ROLAR O DADO"

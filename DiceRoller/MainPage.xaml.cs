@@ -4,25 +4,64 @@ namespace DiceRoller;
 
 public partial class MainPage : ContentPage
 {
+    int numSides = 6;
 
-
-	public MainPage()
+    public MainPage()
 	{
 		InitializeComponent();
+		sidesPicker.SelectedIndex = 0;
     }
 
-	private void btnRandom_Click(object sender, EventArgs e)
+	public class Dice
 	{
-		Random numAleatorio = new Random();
+		//public int QuantidadeDeLados { get; set; }
 
-		string Resultado = "";
+		public Dice() { }
 
-		for (int i = 0; i <= 1 -1; i++)
+		public Dice(int numSides)
 		{
-			Resultado += numAleatorio.Next(1,5);
-			dicerNumber.Text = Resultado;
+			this.numSides = numSides;
+		}
 
-        }
+		private int numSides;
+
+		public int RollDice()
+		{
+			int radom = new Random().Next(1, numSides +1);
+			return radom;
+		}
+	}
+
+	public void btnRandom_Click(object sender, EventArgs e)
+	{
+		numSides = Convert.ToInt32(sidesPicker.SelectedItem.ToString());
+		Dice dice = new Dice(); //os numéros do picker deve ficar dentro do ()
+        NumberOfDice.Text = dice.RollDice().ToString();
+
+
     }
+
+
+
+
+
+
+
+
+
+
+	//private void btnRandom_Click(object sender, EventArgs e)
+	//{
+		//var maxValue = sidesPicker.SelectedItem; 
+		
+		//var numeroSorteado = new Random().Next(1, (int)maxValue);
+
+		//DiceOfNumber. Text = numeroSorteado.ToString();
+    //}
+
+
+
+
+
 }
 
