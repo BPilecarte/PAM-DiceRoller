@@ -16,16 +16,20 @@
             
             <Image
                 x:Name="DiceImage"
-                Source="dice_1.png"
+                Source="dice_4.png"
                 SemanticProperties.Description="Um dado com a face número 1 para cima"
                 HeightRequest="150"
                 HorizontalOptions="Center"/>
 
             <Label x:Name="NumberOfDice" 
-                   Text="0" HorizontalOptions="Center" 
+                   Text="0" 
+                   HorizontalOptions="Center" 
                    FontSize="32"/>
 
-            <Picker x:Name="sidesPicker" HorizontalOptions="Center">
+            <Picker x:Name="sidesPicker" 
+                    Title="Selecione a quantidade de lados do dado"
+                    HorizontalOptions="Center"
+                    SelectedIndexChanged="OnChangedOption">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:Int32}">
                         <x:Int32>4</x:Int32>
